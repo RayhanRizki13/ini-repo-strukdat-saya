@@ -99,14 +99,55 @@ int main() {
 
 ```
 #### Output:
-
+<img width="1476" height="340" alt="Image" src="https://github.com/user-attachments/assets/821ee03f-d068-40bb-89a5-6bc4b561edfc" />
 Kode di atas digunakan untuk mencetak teks "ini adalah file code guided praktikan" ke layar menggunakan function cout untuk mengeksekusi nya.
 
 #### Full code Screenshot:
+<img width="1485" height="940" alt="Image" src="https://github.com/user-attachments/assets/0e60e190-6e0c-49ae-899b-fe1e57c46008" />
+### 2. [Buatlah sebuah program yang menerima masukan angka dan mengeluarkan output nilai
+<img width="1488" height="919" alt="Image" src="https://github.com/user-attachments/assets/690e7092-ea2b-491b-921d-f3785cc4e468" />
+### Output
+<img width="1283" height="192" alt="Image" src="https://github.com/user-attachments/assets/8be7350a-b254-4575-9d03-88461cad712b" />
+### Fullscreenshot
+<img width="1487" height="932" alt="Image" src="https://github.com/user-attachments/assets/3d279e70-8006-41fa-9530-3b4d208fef61" />
+### 3. [Membuat segitiga terbalik ]
 
+#include <iostream>
+using namespace std;
 
+int main() {
+    int n;
+    cout << "Masukkan angka: ";
+    cin >> n;
+
+    for (int i = n; i >= 1; i--) {
+        for (int s = n; s > i; s--) {
+            cout << "  "; 
+        }
+        for (int j = i; j >= 1; j--) {
+            cout << j << " ";
+        }
+        cout << "* ";
+        for (int j = 1; j <= i; j++) {
+            cout << j << " ";
+        }
+        cout << endl;
+    }
+    for (int s = 0; s < n; s++) {
+        cout << "  "; 
+    }
+    cout << "*\n";
+
+    return 0;
+}
+
+### Output
+<img width="1485" height="218" alt="Image" src="https://github.com/user-attachments/assets/169fd6ae-2e64-4b8f-88d6-0f1650bf3634" />
+
+### Full screenshot
+<img width="1473" height="972" alt="Image" src="https://github.com/user-attachments/assets/f8e6d408-cdb5-4738-8bff-b81201493ed8" />
 ## Kesimpulan
-Ringkasan dan interpretasi pandangan kalia dari hasil praktikum dan pembelajaran yang didapat[1].
+Dapat mengetahui codingan input output tentang modul ini
 
 ## Referensi
-[1] I. Holm, Narrator, and J. Fullerton-Smith, Producer, How to Build a Human [DVD]. London: BBC; 2002.
+ARIAPURI, Narlidya; PRASETYO, Andy. Efektivitas Aplikasi Kasir Menggunakan Code Blocks Berbasis C++. Teknik Informatika Politeknik Purbaya, 2018.
