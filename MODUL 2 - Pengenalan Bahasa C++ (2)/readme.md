@@ -126,7 +126,7 @@ Kode di atas digunakan untuk menghitung dan menampilkan hasil operasi dua matrik
 #### Full code Screenshot:
 <img width="1334" height="2456" alt="Image" src="https://github.com/user-attachments/assets/042b8939-27f4-461f-a129-efa99a6ae6ac" />
 ### 2. [SOAL]
-'''C++
+```C++
 #include <iostream>
 using namespace std;
 
@@ -143,17 +143,13 @@ int main() {
     tukarReference(x, y, z);
     cout << "Sesudah: x=" << x << ", y=" << y << ", z=" << z << endl;
 }
-'''
-
+```
 ### Output
 <img width="980" height="125" alt="Image" src="https://github.com/user-attachments/assets/cac56ab9-6966-4bc7-a534-86066adae4cf" />
 ### Fullscreenshot
 <img width="1443" height="929" alt="Image" src="https://github.com/user-attachments/assets/202af98b-162b-4e37-a1d0-afcabb4a3c4a" />
 ### 3. [SOAL]
-
-#include <iostream>
-using namespace std;
-'''C++
+```C++
 #include <iostream>
 using namespace std;
 
@@ -215,7 +211,8 @@ int main() {
         }
     } while (pilih != 5);
 }
-'''
+
+```
 ### Output
 <img width="1335" height="851" alt="Image" src="https://github.com/user-attachments/assets/55a736e9-77a1-4eec-860c-c07d1d5a2d4c" />
 ### Full screenshot
@@ -224,4 +221,5 @@ int main() {
 Kode ini menyediakan menu interaktif untuk mengolah sebuah array: tampilkan isi, cari maksimum, minimum, atau hitung rata-rata. Setiap operasi dikerjakan oleh fungsi terpisah, dan program berulang sampai pengguna memilih keluar.
 ## Referensi
 Belajar Pemrograman Lanjut dengan C++ (Putra, Munawir, Yuniarti, 2023)
+
 
