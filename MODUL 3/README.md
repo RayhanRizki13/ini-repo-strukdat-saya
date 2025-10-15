@@ -107,8 +107,12 @@ int main() {
 Kode di atas digunakan untuk menghitung dan menampilkan hasil operasi dua matriks 3×3. Pengguna memasukkan elemen matriks A dan B, lalu memilih operasi (tambah, kurang, atau kali). Hasil perhitungan ditampilkan ke layar dengan cout.
 #### Full code Screenshot:
 <img width="1334" height="2646" alt="Image" src="https://github.com/user-attachments/assets/8241a414-22f5-448e-bae0-f0ca5aa329e5" />
+
+
 ### 2. [SOAL]
+
 pelajaran.h
+
 ```C++
 #ifndef PELAJARAN_H
 #define PELAJARAN_H
@@ -131,6 +135,7 @@ void tampil_pelajaran(pelajaran pel);
 
 
 pelajaran.cpp
+
 ```C++
 #ifndef PELAJARAN_H
 #define PELAJARAN_H
@@ -151,8 +156,8 @@ void tampil_pelajaran(pelajaran pel);
 #endif
 ```
 
-
 main.cpp
+
 ```C++
 #include <iostream>
 #include "pelajaran.h"
@@ -262,6 +267,7 @@ int main() {
 Kode ini menunjukkan bagaimana penggunaan array dua dimensi (2D) dan pointer dalam bahasa C++. Program ini mendemonstrasikan tiga konsep utama.
 ## Referensi
 Abstract Data Types in Object-Capability Systems — James Noble, Sophia Drossopoulou, Mark S. Miller, Toby Murray, Alex Potanin (ECOOP 2016)
+
 
 
 
