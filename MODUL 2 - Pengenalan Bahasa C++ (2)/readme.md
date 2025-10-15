@@ -1,9 +1,9 @@
-# <h1 align="center">Laporan Praktikum Modul Pengenalan Bahasa C++ (1)</h1>
+# <h1 align="center">Laporan Praktikum Modul Pengenalan Bahasa C++ (2)</h1>
 <p align="center">RAYHAN RIZKI PUTRA</>
 
 ## Dasar Teori
 
-1. MODUL PENGENALAN BAHASA C++ BAGIAN 2Kode di atas digunakan untuk menampilkan isi array 1 dimensi, 2 dimensi, dan 3 dimensi ke layar.
+1. MODUL PENGENALAN BAHASA C++ BAGIAN 2.
 
 ## Guided 
 
@@ -221,5 +221,6 @@ int main() {
 Kode ini menyediakan menu interaktif untuk mengolah sebuah array: tampilkan isi, cari maksimum, minimum, atau hitung rata-rata. Setiap operasi dikerjakan oleh fungsi terpisah, dan program berulang sampai pengguna memilih keluar.
 ## Referensi
 Belajar Pemrograman Lanjut dengan C++ (Putra, Munawir, Yuniarti, 2023)
+
 
 
