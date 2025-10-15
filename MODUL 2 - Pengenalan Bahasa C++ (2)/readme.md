@@ -1,5 +1,5 @@
 # <h1 align="center">Laporan Praktikum Modul Pengenalan Bahasa C++ (1)</h1>
-<p align="center">r</Rayhan RIZKI PUTRA>
+<p align="center">RAYHAN RIZKI PUTRA</>
 
 ## Dasar Teori
 
@@ -151,3 +151,4 @@ Dapat mengetahui codingan input output tentang modul ini
 
 ## Referensi
 ARIAPURI, Narlidya; PRASETYO, Andy. Efektivitas Aplikasi Kasir Menggunakan Code Blocks Berbasis C++. Teknik Informatika Politeknik Purbaya, 2018.
+
