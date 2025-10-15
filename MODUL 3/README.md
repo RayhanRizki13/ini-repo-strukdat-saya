@@ -127,8 +127,9 @@ pelajaran create_pelajaran(string namaMapel, string kodePel);
 void tampil_pelajaran(pelajaran pel);
 
 #endif
-
 ```
+
+
 pelajaran.cpp
 ```C++
 #ifndef PELAJARAN_H
@@ -149,6 +150,8 @@ void tampil_pelajaran(pelajaran pel);
 
 #endif
 ```
+
+
 main.cpp
 ```C++
 #include <iostream>
@@ -260,6 +263,7 @@ int main() {
 Kode ini menunjukkan bagaimana penggunaan array dua dimensi (2D) dan pointer dalam bahasa C++. Program ini mendemonstrasikan tiga konsep utama.
 ## Referensi
 Abstract Data Types in Object-Capability Systems — James Noble, Sophia Drossopoulou, Mark S. Miller, Toby Murray, Alex Potanin (ECOOP 2016)
+
 
 
 
