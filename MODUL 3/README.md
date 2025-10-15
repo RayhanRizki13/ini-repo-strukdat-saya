@@ -100,8 +100,8 @@ int main() {
 
     return 0;
 }
-
 ```
+
 #### Output:
 <img width="1451" height="972" alt="Image" src="https://github.com/user-attachments/assets/a75593cc-3e41-458d-8b72-15d2b602a577" />
 Kode di atas digunakan untuk menghitung dan menampilkan hasil operasi dua matriks 3×3. Pengguna memasukkan elemen matriks A dan B, lalu memilih operasi (tambah, kurang, atau kali). Hasil perhitungan ditampilkan ke layar dengan cout.
@@ -178,6 +178,7 @@ pelajaran.cpp
 main.cpp
 <img width="570" height="257" alt="Image" src="https://github.com/user-attachments/assets/814d5cbe-e01c-4f5c-a0b9-b13347a0088a" />
 kode diatas untuk membuat program lebih terstruktur, modular, dan mudah dikembangkan.
+
 ### 3. [SOAL]
 ```C++
 #include <iostream>
@@ -252,8 +253,6 @@ int main() {
 
     return 0;
 }
-
-
 ```
 ### Output
 <img width="647" height="502" alt="Image" src="https://github.com/user-attachments/assets/00505de1-3b1e-4dbb-bad0-1ac394e248d3" />
@@ -263,6 +262,7 @@ int main() {
 Kode ini menunjukkan bagaimana penggunaan array dua dimensi (2D) dan pointer dalam bahasa C++. Program ini mendemonstrasikan tiga konsep utama.
 ## Referensi
 Abstract Data Types in Object-Capability Systems — James Noble, Sophia Drossopoulou, Mark S. Miller, Toby Murray, Alex Potanin (ECOOP 2016)
+
 
 
 
