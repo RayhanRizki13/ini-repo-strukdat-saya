@@ -138,13 +138,18 @@ int main() {
 
 #### Output:
 <img width="390" height="50" alt="Image" src="https://github.com/user-attachments/assets/a5204347-6d65-40f2-bf73-a7b37c7022e3" />
+
 Kode di atas digunakan untuk membuat dan menampilkan isi Singly Linked List berupa data 9, 12, 8, 0, dan 2 menggunakan tiga file program Singlylist.h, Singlylist.cpp, dan main.cpp.
+
 #### Full code Screenshot:
+
 
 singlylist.h
 <img width="690" height="509" alt="Image" src="https://github.com/user-attachments/assets/2b9cc879-77f4-4252-afbe-8644888d3df6" />
+
 singlylist.cpp
 <img width="492" height="572" alt="Image" src="https://github.com/user-attachments/assets/765f539e-1977-4103-afdb-813db0ce95ce" />
+
 main.cpp
 <img width="412" height="476" alt="image" src="https://github.com/user-attachments/assets/2d08c8c4-72d0-483a-bbb4-5372396e4ab8" />
 
@@ -328,13 +333,21 @@ int main() {
 ```
 
 ### Output
+
 ### Fullscreenshot
+
 <img width="347" height="243" alt="image" src="https://github.com/user-attachments/assets/61eaeba9-ffa9-4d3a-a277-5eff7435e824" />
+
 singlylist.h
+
 <img width="451" height="578" alt="image" src="https://github.com/user-attachments/assets/e43dcddd-c016-4730-ac38-97accd7e52ef" />
+
 singlylist.cpp
+
 <img width="1712" height="3404" alt="Image" src="https://github.com/user-attachments/assets/1ff4b0fc-1307-4650-b821-cc173bbea7dc" />
+
 main.cpp
+
 <img width="578" height="730" alt="image" src="https://github.com/user-attachments/assets/64b39fc0-d5c9-4de0-94c7-a964dc2906ae" />
 
 kode ini menampilkan proses penghapusan node pada singly linked list hingga tersisa data 12 dan 0, lalu menghapus seluruh node tinggal 0
@@ -344,6 +357,7 @@ Kedua kode tersebut menunjukkan cara membuat, menampilkan, dan menghapus data pa
 sedangkan soal kedua menampilkan proses penghapusan hingga list kosong dengan jumlah node 0.
 ## Referensi
 Penggunaan Algoritma Doubly Linked List Untuk Insertion Dan Deletion — oleh Agung Wijoyo et al., Universitas Pamulang.
+
 
 
 
