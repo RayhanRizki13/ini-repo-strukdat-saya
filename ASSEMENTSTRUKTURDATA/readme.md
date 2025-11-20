@@ -596,3 +596,471 @@ void searchByPopularityRange(List L, float minScore, float maxScore) {
     }
 }
 ```
+
+main.cpp
+
+```C++
+#include "DLLPlaylist.h"
+
+Node* getNodeAt(List L, int posisi) {
+    Node* P = L.head;
+    int idx = 1;
+    while (P != NULL && idx < posisi) {
+        P = P->next;
+        idx++;
+    }
+    return P;
+}
+
+int main() {
+    List L;
+    createList(L);
+
+    // Data lagu
+    Song S1 = {"Senja di Kota", "Nona Band", 210, 150, 4.2};
+    Song S2 = {"Langkahmu", "Delta", 185, 320, 4.8};
+    Song S3 = {"Hujan Minggu", "Arka", 240, 90, 3.9};
+
+    insertLast(L, S1);
+    insertLast(L, S2);
+    insertLast(L, S3);
+
+    viewList(L);
+
+    Song temp;
+    deleteLast(L, temp);
+
+    cout << "\n=== UPDATE POSISI 2 ===\n";
+    cin.ignore(); 
+    Song dummy;
+    updateAtPosition(L, 2);
+
+    viewList(L);
+
+    cout << "\n=== INSERT BEFORE POSISI 2 ===\n";
+    Song Snew = {"Senandung", "Mira", 175, 120, 4.0};
+
+    Node* pos2 = getNodeAt(L, 2);
+    insertBefore(L, pos2, Snew);
+
+    viewList(L);
+
+    cout << "\n=== UPDATE BEFORE POSISI 2 ===\n";
+    updateBefore(L, pos2);
+
+    viewList(L);
+
+    cout << "\n=== DELETE BEFORE POSISI 3 ===\n";
+    Node* pos3 = getNodeAt(L, 3);
+    deleteBefore(L, pos3, temp);
+
+    viewList(L);
+
+    cout << "\n=== SEARCH (150 - 300) ===\n";
+    searchByPopularityRange(L, 150.0, 300.0);
+
+    return 0;
+}
+```
+### OUTPUT
+<img width="808" height="161" alt="image" src="https://github.com/user-attachments/assets/c384c035-9ac0-4ca1-992c-ee2b8789aca6" />
+
+SOAL KETIGA
+
+StackMahasiswa.h
+
+```C++
+
+#ifndef STACKMAHASISWA_H
+#define STACKMAHASISWA_H
+
+#include <iostream>
+#include <string>
+using namespace std;
+
+const int MAX = 6;
+
+struct Mahasiswa {
+    string Nama;
+    string NIM;
+    float NilaiTugas;
+    float NilaiUTS;
+    float NilaiUAS;
+};
+
+struct StackMahasiswa {
+    Mahasiswa dataMahasiswa[MAX];
+    int Top;
+};
+
+// Prototype
+bool isEmpty(StackMahasiswa StackMHS);
+bool isFull(StackMahasiswa StackMHS);
+void createStack(StackMahasiswa &StackMHS);
+
+void Push(StackMahasiswa &StackMHS);
+void Pop(StackMahasiswa &StackMHS);
+void Update(StackMahasiswa &StackMHS, int posisi);
+void View(StackMahasiswa StackMHS);
+
+float hitungNilaiAkhir(Mahasiswa MHS);
+void SearchNilaiAkhir(StackMahasiswa StackMHS, float NilaiMin, float NilaiMax);
+
+void MaxNilaiAkhir(StackMahasiswa StackMHS);
+
+#endif
+
+```
+
+StackMahasiswa.cpp
+
+```C++
+#include "StackMahasiswa.h"
+
+bool isEmpty(StackMahasiswa StackMHS) {
+    return StackMHS.Top == -1;
+}
+
+bool isFull(StackMahasiswa StackMHS) {
+    return StackMHS.Top == MAX - 1;
+}
+
+void createStack(StackMahasiswa &StackMHS) {
+    StackMHS.Top = -1;
+}
+
+void Push(StackMahasiswa &StackMHS) {
+    if (isFull(StackMHS)) {
+        cout << "Stack penuh!\n";
+        return;
+    }
+
+    Mahasiswa M;
+
+    cin.ignore();
+    cout << "Nama         : "; getline(cin, M.Nama);
+    cout << "NIM          : "; getline(cin, M.NIM);
+    cout << "Nilai Tugas  : "; cin >> M.NilaiTugas;
+    cout << "Nilai UTS    : "; cin >> M.NilaiUTS;
+    cout << "Nilai UAS    : "; cin >> M.NilaiUAS;
+
+    StackMHS.Top++;
+    StackMHS.dataMahasiswa[StackMHS.Top] = M;
+}
+
+void Pop(StackMahasiswa &StackMHS) {
+    if (isEmpty(StackMHS)) {
+        cout << "Stack kosong!\n";
+        return;
+    }
+    StackMHS.Top--;
+}
+
+void Update(StackMahasiswa &StackMHS, int posisi) {
+    if (posisi < 1 || posisi > StackMHS.Top + 1) {
+        cout << "Posisi tidak valid!\n";
+        return;
+    }
+
+    Mahasiswa M;
+    cin.ignore();
+    cout << "Update Nama        : "; getline(cin, M.Nama);
+    cout << "Update NIM         : "; getline(cin, M.NIM);
+    cout << "Update NilaiTugas  : "; cin >> M.NilaiTugas;
+    cout << "Update NilaiUTS    : "; cin >> M.NilaiUTS;
+    cout << "Update NilaiUAS    : "; cin >> M.NilaiUAS;
+
+    StackMHS.dataMahasiswa[posisi - 1] = M;
+}
+
+float hitungNilaiAkhir(Mahasiswa MHS) {
+    return (0.2 * MHS.NilaiTugas) + (0.4 * MHS.NilaiUTS) + (0.4 * MHS.NilaiUAS);
+}
+
+void View(StackMahasiswa StackMHS) {
+    if (isEmpty(StackMHS)) {
+        cout << "Stack kosong!\n";
+        return;
+    }
+
+    cout << "\n=== DATA STACK MAHASISWA ===\n";
+
+    for (int i = StackMHS.Top; i >= 0; i--) {
+        cout << "Posisi " << i + 1 << endl;
+        cout << "Nama       : " << StackMHS.dataMahasiswa[i].Nama << endl;
+        cout << "NIM        : " << StackMHS.dataMahasiswa[i].NIM << endl;
+        cout << "NilaiAkhir : " << hitungNilaiAkhir(StackMHS.dataMahasiswa[i]) << endl;
+        cout << "-------------------------\n";
+    }
+}
+
+void SearchNilaiAkhir(StackMahasiswa StackMHS, float NilaiMin, float NilaiMax) {
+    cout << "\n=== HASIL SEARCH NILAI AKHIR ===\n";
+
+    for (int i = 0; i <= StackMHS.Top; i++) {
+        float nilaiAkhir = hitungNilaiAkhir(StackMHS.dataMahasiswa[i]);
+        if (nilaiAkhir >= NilaiMin && nilaiAkhir <= NilaiMax) {
+            cout << "Ditemukan di posisi " << i + 1 << endl;
+            cout << "Nama  : " << StackMHS.dataMahasiswa[i].Nama << endl;
+            cout << "NIM   : " << StackMHS.dataMahasiswa[i].NIM << endl;
+            cout << "NilaiAkhir : " << nilaiAkhir << endl;
+            cout << "-------------------------\n";
+        }
+    }
+}
+
+void MaxNilaiAkhir(StackMahasiswa StackMHS) {
+    if (isEmpty(StackMHS)) {
+        cout << "Stack kosong!\n";
+        return;
+    }
+
+    float maxNilai = -999;
+    int posisi = -1;
+
+    for (int i = 0; i <= StackMHS.Top; i++) {
+        float nilai = hitungNilaiAkhir(StackMHS.dataMahasiswa[i]);
+        if (nilai > maxNilai) {
+            maxNilai = nilai;
+            posisi = i + 1;
+        }
+    }
+
+    cout << "\n=== NILAI AKHIR TERBESAR ===\n";
+    cout << "Nama  : " << StackMHS.dataMahasiswa[posisi - 1].Nama << endl;
+    cout << "NIM   : " << StackMHS.dataMahasiswa[posisi - 1].NIM << endl;
+    cout << "Nilai Akhir : " << maxNilai << endl;
+    cout << "Posisi      : " << posisi << endl;
+}
+```
+
+main.cpp
+
+```C++
+#include "StackMahasiswa.h"
+
+int main() {
+    StackMahasiswa S;
+    createStack(S);
+
+    Mahasiswa M1 = {"Venti", "11111", 75.7, 82.1, 65.5};
+    Mahasiswa M2 = {"Xiao", "22222", 87.4, 88.9, 81.9};
+    Mahasiswa M3 = {"Kazuha", "33333", 92.3, 88.8, 82.4};
+    Mahasiswa M4 = {"Wanderer", "44444", 95.5, 85.5, 90.5};
+    Mahasiswa M5 = {"Lynette", "55555", 77.7, 65.4, 79.9};
+    Mahasiswa M6 = {"Chasca", "66666", 99.9, 93.6, 87.3};
+
+    S.Top++; S.dataMahasiswa[S.Top] = M1;
+    S.Top++; S.dataMahasiswa[S.Top] = M2;
+    S.Top++; S.dataMahasiswa[S.Top] = M3;
+    S.Top++; S.dataMahasiswa[S.Top] = M4;
+    S.Top++; S.dataMahasiswa[S.Top] = M5;
+    S.Top++; S.dataMahasiswa[S.Top] = M6;
+
+    View(S);
+
+    Pop(S);
+
+    View(S);
+
+    cout << "\n=== UPDATE POSISI 3 ===\n";
+    cin.ignore();
+    Mahasiswa Upd = {"Heizou", "77777", 99.9, 88.8, 77.7};
+    S.dataMahasiswa[2] = Upd;
+
+    View(S);
+
+    SearchNilaiAkhir(S, 85.5, 95.5);
+
+    MaxNilaiAkhir(S);
+
+    return 0;
+}
+```
+### OUTPUT
+<img width="495" height="810" alt="image" src="https://github.com/user-attachments/assets/b8434b7c-f369-4166-be2f-4c6cc55fd0a1" />
+
+SOAL KEEMPAT
+
+QueuePengiriman.h
+
+```C++
+#ifndef QUEUEPENGIRIMAN_H
+#define QUEUEPENGIRIMAN_H
+#include <iostream>
+using namespace std;
+
+const int MAX = 5;
+
+struct Paket {
+    string KodeResi;
+    string NamaPengirim;
+    int BeratBarang; 
+    string Tujuan;
+};
+
+struct QueueEkspedisi {
+    Paket dataPaket[MAX];
+    int Head;
+    int Tail;
+};
+
+bool isEmpty(QueueEkspedisi Q);
+bool isFull(QueueEkspedisi Q);
+void createQueue(QueueEkspedisi &Q);
+void enQueue(QueueEkspedisi &Q);
+void deQueue(QueueEkspedisi &Q);
+void viewQueue(QueueEkspedisi Q);
+
+int TotalBiayaPengiriman(QueueEkspedisi Q);
+
+#endif
+```
+
+QueuePengiriman.cpp
+
+```C++
+#include "QueuePengiriman.h"
+
+bool isEmpty(QueueEkspedisi Q) {
+    return (Q.Head == -1 && Q.Tail == -1);
+}
+
+bool isFull(QueueEkspedisi Q) {
+    return (Q.Tail == MAX - 1);
+}
+
+void createQueue(QueueEkspedisi &Q) {
+    Q.Head = -1;
+    Q.Tail = -1;
+}
+
+void enQueue(QueueEkspedisi &Q) {
+    if (isFull(Q)) {
+        cout << "Queue penuh! Tidak bisa tambah data.\n";
+    } else {
+        Paket P;
+        cout << "Masukkan Kode Resi       : ";
+        cin >> P.KodeResi;
+        cout << "Masukkan Nama Pengirim   : ";
+        cin >> P.NamaPengirim;
+        cout << "Masukkan Berat Barang(kg): ";
+        cin >> P.BeratBarang;
+        cout << "Masukkan Tujuan          : ";
+        cin >> P.Tujuan;
+
+        if (isEmpty(Q)) {
+            Q.Head = Q.Tail = 0;
+        } else {
+            Q.Tail++;
+        }
+        Q.dataPaket[Q.Tail] = P;
+
+        cout << "Data berhasil ditambahkan!\n";
+    }
+}
+
+void deQueue(QueueEkspedisi &Q) {
+    if (isEmpty(Q)) {
+        cout << "Queue kosong! Tidak bisa hapus.\n";
+    } else {
+        cout << "Menghapus paket dengan Resi: " 
+             << Q.dataPaket[Q.Head].KodeResi << endl;
+
+        for (int i = Q.Head; i < Q.Tail; i++) {
+            Q.dataPaket[i] = Q.dataPaket[i + 1];
+        }
+
+        Q.Tail--;
+        if (Q.Tail < Q.Head) {
+            createQueue(Q);
+        }
+    }
+}
+
+void viewQueue(QueueEkspedisi Q) {
+    if (isEmpty(Q)) {
+        cout << "Queue kosong!\n";
+    } else {
+        cout << "\n=== Daftar Paket Dalam Queue ===\n";
+        for (int i = Q.Head; i <= Q.Tail; i++) {
+            cout << "Posisi " << i << " :\n";
+            cout << "  Resi      : " << Q.dataPaket[i].KodeResi << endl;
+            cout << "  Pengirim  : " << Q.dataPaket[i].NamaPengirim << endl;
+            cout << "  Berat     : " << Q.dataPaket[i].BeratBarang << " kg\n";
+            cout << "  Tujuan    : " << Q.dataPaket[i].Tujuan << endl;
+            cout << "------------------------------\n";
+        }
+    }
+}
+
+int TotalBiayaPengiriman(QueueEkspedisi Q) {
+    int total = 0;
+    if (isEmpty(Q)) return 0;
+
+    for (int i = Q.Head; i <= Q.Tail; i++) {
+        total += Q.dataPaket[i].BeratBarang * 8250;
+    }
+    return total;
+}
+```
+
+main.cpp
+
+```C++
+#include <iostream>
+#include "QueuePengiriman.h"
+using namespace std;
+
+int main() {
+    QueueEkspedisi Q;
+    createQueue(Q);
+
+    int pilihan;
+    do {
+        cout << "\n--- Komaniya Ekspress ---\n";
+        cout << "1. Input Data Paket\n";
+        cout << "2. Hapus Data Paket\n";
+        cout << "3. Tampilkan Queue Paket\n";
+        cout << "4. Hitung Total Biaya Pengiriman\n";
+        cout << "5. Exit\n";
+        cout << "Pilihan anda : ";
+        cin >> pilihan;
+
+        switch (pilihan) {
+        case 1:
+            enQueue(Q);
+            break;
+
+        case 2:
+            deQueue(Q);
+            break;
+
+        case 3:
+            viewQueue(Q);
+            break;
+
+        case 4:
+            cout << "\nTotal biaya pengiriman: Rp "
+                 << TotalBiayaPengiriman(Q) << endl;
+            break;
+
+        case 5:
+            cout << "Program selesai.\n";
+            break;
+
+        default:
+            cout << "Pilihan tidak valid!\n";
+        }
+    } while (pilihan != 5);
+
+    return 0;
+}
+```
+
+### OUTPUT
+<img width="539" height="542" alt="image" src="https://github.com/user-attachments/assets/caaaaa49-cc89-48dc-83b3-3d9fa780b299" />
+
+
+
+
